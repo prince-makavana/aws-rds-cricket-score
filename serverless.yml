@@ -1,0 +1,33 @@
+service: aws-node-cricket
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  userHandler:
+    handler: handlers/userHandler.handler
+    events:
+      - http:
+          path: user/registration
+          method: post
+      - http:
+          path: send-otp
+          method: post
+
+  scoreHandler:
+    handler: handlers/scoreHandler.scoreHandler
+    events:
+      - http:
+          path: score
+          method: post
+      - http:
+          path: score/{id}/all
+          method: get
+      - http:
+          path: score/{id}/week
+          method: get
+
+plugins:
+  - serverless-offline

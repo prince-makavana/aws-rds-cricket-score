@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "admin", 
+    "password": "prince123",
+    "database": "cricket-db",
+    "host": "database-1.cb0w8sycqp8v.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}

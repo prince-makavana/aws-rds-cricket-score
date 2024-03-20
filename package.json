@@ -1,0 +1,26 @@
+{
+  "name": "aws-node-cricket",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "nodemon --exec serverless offline",
+    "migration": "npx sequelize-cli db:migrate"
+  },
+  "dependencies": {
+    "@sequelize/core": "^7.0.0-alpha.37",
+    "crypto-js": "^4.2.0",
+    "express": "^4.18.2",
+    "joi": "^17.12.2",
+    "moment": "^2.30.1",
+    "mysql": "^2.18.1",
+    "mysql-migrations": "^1.0.7",
+    "mysql2": "^3.9.2",
+    "sequelize": "^6.37.1",
+    "serverless-http": "^3.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "sequelize-cli": "^6.6.2",
+    "serverless-offline": "^13.3.3"
+  }
+}
