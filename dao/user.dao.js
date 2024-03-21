@@ -1,3 +1,4 @@
+const { Sequelize } = require("sequelize");
 const db = require("../models/db");
 
 const createUserService = async (userDetails) => {
@@ -9,9 +10,16 @@ const createUserService = async (userDetails) => {
     }
 }
 
-const fetchUserPhone = async (phone) => {
+const fetchUserPhone = async (phone, email) => {
     try {
-        return await db.user.findAll({ where: { phone } })
+        return await db.user.findAll({
+            where: {
+                [Sequelize.Op.or]: [
+                    { phone },
+                    { email }
+                ]
+            }
+        })
     } catch (error) {
         throw error
     }

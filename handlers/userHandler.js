@@ -19,9 +19,9 @@ app.post("/user/registration", async (req, res, next) => {
     if (!otpStore[phone] || otpStore[phone].otp !== otp || otpStore[phone].expiry < Date.now()) {
       return res.status(419).json({ success: false, message: 'Invalid OTP or OTP expired' });
     }
-    const existingUser = await fetchUserPhone(phone)
+    const existingUser = await fetchUserPhone(phone, email)
     if (existingUser.length) {
-      return res.status(409).json({ success: false, message: 'Phone number already exists' });
+      return res.status(409).json({ success: false, message: 'Email or Phone number already exists' });
     }
     const createUser = await userService.createUser(body);
     res.status(201).json({ success: true, data: createUser });

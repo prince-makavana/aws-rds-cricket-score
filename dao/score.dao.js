@@ -40,7 +40,7 @@ const findAllUsersTotalScore = async () => {
 
 const findUserTotalScoreByWeek = async () => {
     try {
-        const query = 'select WEEK(DATE_ADD(s.createdAt , INTERVAL 2 DAY)) as week, sum(s.score) as totalScore, s.userId from `cricket-db`.scores s group by week, userId'
+        const query = 'select WEEK(DATE_ADD(s.createdAt , INTERVAL 2 DAY)) as week, sum(s.score) as totalScore, s.userId from `cricket-db`.Scores s group by week, userId'
         return await sequelize.query(query, { type: sequelize.QueryTypes.SELECT });
     } catch (error) {
         throw error
